@@ -29,3 +29,17 @@ Het eindresultaat van deze bachelorproef bestaat uit volgende onderdelen:
   * Node.js
   * iOS
   * Android
+
+##Logboek
+
+* **22/09/2014** - Voorstel ingestuurd
+* **23/09/2014** - Onderzoek naar Bluemix. Kijken of ik het kan opstarten. Het feit is dat alles geld kost. Ik kan enkel een 30dagen account registreren. Ik heb een mail gestuurd naar VR om te zien of ik een account kan verkrijgen die langer meegaat. Ik heb het project aangemaakt met het boiler template van het type Mobile Cloud. Bluemix heeft direct een hostname opgezet voor alles.
+  <img src="http://i.imgur.com/AkFJ7gJ.png"/> 
+  Ik zit nu vast met hoe ik nu verder moet. Dit ligt vooral aan hoe Node.js, MAS, Mobile Data en Push in elkaar steken.
+* **15/10/2014** - Ik heb de tutorial gevolgd van Android en heb succesvol een android app kunnen opzetten. Alles is heel goed uitgelegd!
+  <img src="http://i.imgur.com/TaETooG.png"/>
+  <img src="http://i.imgur.com/cg6PSH1.png"/>
+  Ook heb ik een node.js project kunnen opzetten met bluemix alsook een GIT repository op Jazz. Dit is een versioningsysteem van IBM die ervoor zorgt dat de app kan blijven runnen in samenwerking met BlueMix.
+  <img src="http://i.imgur.com/24ZI7sJ.png"/>
+* **21/10/2014** - Telefonisch contact gehad met de mensen van IBM betreffende het verlopen van mijn account. Ik moet kredietkaart gegevens invullen en dan kan ik doorwerken. Eventueel vragen aan mn ouders ofwel een prepaid kredietkaart. De persoon van IBM heeft mij ook verschillende documenten en filmpjes gemailed om mij te ondersteunen bij het maken van mijn applicatie.
+ 
