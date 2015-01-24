@@ -1,0 +1,16 @@
+{
+  "name": "bluelist-mobileweb",
+  "description": "Bluelist Mobile Web Sample using Codename: Bluemix",
+  "version" : "0.3.2",
+  "author": "Matthew Perrins <matthew_perrins@uk.ibm.com>",
+  "license": "Apache",
+  "dependencies": {
+    "request": "~2.34.0",
+    "body-parser": "*",
+    "express": "4.x",
+    "express-namespace": "*",
+    "ibmdata": "latest",
+    "ibmbluemix": "latest"
+  },
+  "main": "app.js"
+}

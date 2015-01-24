@@ -1,0 +1,16 @@
+/* Empty. Add your own CSS if you like */
+
+.hidden {
+	display:none;
+}
+
+.logo {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+}
+
+.logo img   {
+	width:60%;
+}

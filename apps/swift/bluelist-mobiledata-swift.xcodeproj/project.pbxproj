@@ -1,0 +1,300 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0155F4B919A6897800AA0CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155F4B519A6897800AA0CF0 /* AppDelegate.swift */; };
+		0155F4BA19A6897800AA0CF0 /* IBM_CreateEditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155F4B619A6897800AA0CF0 /* IBM_CreateEditItemViewController.swift */; };
+		0155F4BB19A6897800AA0CF0 /* IBM_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155F4B719A6897800AA0CF0 /* IBM_Item.swift */; };
+		0155F4BC19A6897800AA0CF0 /* IBM_ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155F4B819A6897800AA0CF0 /* IBM_ListViewController.swift */; };
+		0155F4BE19A6899500AA0CF0 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0155F4BD19A6899500AA0CF0 /* main.storyboard */; };
+		0155F4C019A689AD00AA0CF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0155F4BF19A689AD00AA0CF0 /* Images.xcassets */; };
+		0155F4C319A689BF00AA0CF0 /* bluelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0155F4C119A689BF00AA0CF0 /* bluelist.plist */; };
+		5FF42BDF1995224C008C51A0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF42BDE1995224C008C51A0 /* libsqlite3.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0155F4B519A6897800AA0CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BlueList/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		0155F4B619A6897800AA0CF0 /* IBM_CreateEditItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBM_CreateEditItemViewController.swift; path = BlueList/IBM_CreateEditItemViewController.swift; sourceTree = SOURCE_ROOT; };
+		0155F4B719A6897800AA0CF0 /* IBM_Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBM_Item.swift; path = BlueList/IBM_Item.swift; sourceTree = SOURCE_ROOT; };
+		0155F4B819A6897800AA0CF0 /* IBM_ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IBM_ListViewController.swift; path = BlueList/IBM_ListViewController.swift; sourceTree = SOURCE_ROOT; };
+		0155F4BD19A6899500AA0CF0 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = SOURCE_ROOT; };
+		0155F4BF19A689AD00AA0CF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BlueList/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		0155F4C119A689BF00AA0CF0 /* bluelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bluelist.plist; path = BlueList/bluelist.plist; sourceTree = SOURCE_ROOT; };
+		0155F4CB19A68D3800AA0CF0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BlueList/Info.plist; sourceTree = SOURCE_ROOT; };
+		5FF42BB019951D2F008C51A0 /* bluelist-mobiledata-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bluelist-mobiledata-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FF42BD219951E56008C51A0 /* bluelist-mobiledata-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "bluelist-mobiledata-swift-Bridging-Header.h"; path = "BlueList/bluelist-mobiledata-swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		5FF42BDE1995224C008C51A0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5FF42BAD19951D2F008C51A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FF42BDF1995224C008C51A0 /* libsqlite3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5FF42BA719951D2F008C51A0 = {
+			isa = PBXGroup;
+			children = (
+				5FF42BB219951D2F008C51A0 /* bluelist-mobiledata-swift */,
+				5FF42BB119951D2F008C51A0 /* Products */,
+				5FF42BDE1995224C008C51A0 /* libsqlite3.dylib */,
+			);
+			sourceTree = "<group>";
+		};
+		5FF42BB119951D2F008C51A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FF42BB019951D2F008C51A0 /* bluelist-mobiledata-swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FF42BB219951D2F008C51A0 /* bluelist-mobiledata-swift */ = {
+			isa = PBXGroup;
+			children = (
+				0155F4B519A6897800AA0CF0 /* AppDelegate.swift */,
+				0155F4B619A6897800AA0CF0 /* IBM_CreateEditItemViewController.swift */,
+				0155F4B719A6897800AA0CF0 /* IBM_Item.swift */,
+				0155F4B819A6897800AA0CF0 /* IBM_ListViewController.swift */,
+				0155F4BF19A689AD00AA0CF0 /* Images.xcassets */,
+				0155F4BD19A6899500AA0CF0 /* main.storyboard */,
+				5FF42BB319951D2F008C51A0 /* Supporting Files */,
+				5FF42BD219951E56008C51A0 /* bluelist-mobiledata-swift-Bridging-Header.h */,
+			);
+			path = "bluelist-mobiledata-swift";
+			sourceTree = "<group>";
+		};
+		5FF42BB319951D2F008C51A0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0155F4CB19A68D3800AA0CF0 /* Info.plist */,
+				0155F4C119A689BF00AA0CF0 /* bluelist.plist */,
+			);
+			name = "Supporting Files";
+			path = "BlueList/Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5FF42BAF19951D2F008C51A0 /* bluelist-mobiledata-swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FF42BCC19951D2F008C51A0 /* Build configuration list for PBXNativeTarget "bluelist-mobiledata-swift" */;
+			buildPhases = (
+				5FF42BAC19951D2F008C51A0 /* Sources */,
+				5FF42BAD19951D2F008C51A0 /* Frameworks */,
+				5FF42BAE19951D2F008C51A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "bluelist-mobiledata-swift";
+			productName = "bluelist-mobiledata-swift";
+			productReference = 5FF42BB019951D2F008C51A0 /* bluelist-mobiledata-swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5FF42BA819951D2F008C51A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = todd;
+				TargetAttributes = {
+					5FF42BAF19951D2F008C51A0 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = 5FF42BAB19951D2F008C51A0 /* Build configuration list for PBXProject "bluelist-mobiledata-swift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5FF42BA719951D2F008C51A0;
+			productRefGroup = 5FF42BB119951D2F008C51A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5FF42BAF19951D2F008C51A0 /* bluelist-mobiledata-swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5FF42BAE19951D2F008C51A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0155F4C019A689AD00AA0CF0 /* Images.xcassets in Resources */,
+				0155F4C319A689BF00AA0CF0 /* bluelist.plist in Resources */,
+				0155F4BE19A6899500AA0CF0 /* main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5FF42BAC19951D2F008C51A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0155F4BB19A6897800AA0CF0 /* IBM_Item.swift in Sources */,
+				0155F4BC19A6897800AA0CF0 /* IBM_ListViewController.swift in Sources */,
+				0155F4BA19A6897800AA0CF0 /* IBM_CreateEditItemViewController.swift in Sources */,
+				0155F4B919A6897800AA0CF0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5FF42BCA19951D2F008C51A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5FF42BCB19951D2F008C51A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5FF42BCD19951D2F008C51A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = BlueList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlueList/bluelist-mobiledata-swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5FF42BCE19951D2F008C51A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = BlueList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlueList/bluelist-mobiledata-swift-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5FF42BAB19951D2F008C51A0 /* Build configuration list for PBXProject "bluelist-mobiledata-swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FF42BCA19951D2F008C51A0 /* Debug */,
+				5FF42BCB19951D2F008C51A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FF42BCC19951D2F008C51A0 /* Build configuration list for PBXNativeTarget "bluelist-mobiledata-swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FF42BCD19951D2F008C51A0 /* Debug */,
+				5FF42BCE19951D2F008C51A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5FF42BA819951D2F008C51A0 /* Project object */;
+}

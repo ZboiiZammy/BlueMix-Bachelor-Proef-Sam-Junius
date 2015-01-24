@@ -1,0 +1,14 @@
+---
+applications: 
+- host: best-practise-discussion 
+  disk_quota:: 128M    
+  name:  best-practise-discussion
+  command: node app.js    
+  path: .    
+  domain: eu-gb.mybluemix.net    
+  mem: 128M    
+  instances: 1
+services:   
+- best-practise-discussion:MAS     
+- best-practise-discussion:Push
+- best-practise-discussion:MobileData     

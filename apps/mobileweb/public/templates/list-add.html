@@ -1,0 +1,33 @@
+<div class="modal">
+
+    <!-- Modal header bar -->
+    <header class="bar bar-header bar-secondary">
+        <h1 class="title" ng-show="!editMode">New Item</h1>
+        <h1 class="title" ng-show="editMode">Update Item</h1>
+        <button class="button button-clear button-positive" ng-click="closeItem()">Cancel</button>
+    </header>
+
+    <!-- Modal content area -->
+    <ion-content class="has-header">
+
+        <form name="listadd">
+            <div class="list">
+
+                <div id="search-box" class="bar bar-header item-input-inset">
+                    <div class="item-input-wrapper">
+                        <input id="name" type="text" required placeholder="Enter your item" value="" autofocus ng-model="item.name">
+
+                        <i class="clear-search icon ion-ios7-close-empty" ng-click="clearSearch()"></i>
+                    </div>
+                </div>
+                <div class="padding">
+                    <button class="button button-block button-positive" ng-show="!editMode" ng-click="createItem(item)">Create Item</button>
+
+                    <button class="button button-block button-positive" ng-show="editMode" ng-click="updateItem(item)">Update item</button>
+                </div>
+            </div>
+        </form>
+
+    </ion-content>
+
+</div>
