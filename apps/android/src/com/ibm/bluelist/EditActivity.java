@@ -17,8 +17,6 @@
 package com.ibm.bluelist;
 
 
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,12 +27,14 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+
+import com.ibm.bluelist.dataobjects.Item;
+import com.ibm.mobile.services.data.IBMDataObject;
+
+import java.util.List;
+
 import bolts.Continuation;
 import bolts.Task;
-
-import com.ibm.mobile.services.data.IBMDataException;
-import com.ibm.mobile.services.data.IBMDataObject;
-import com.ibm.mobile.services.data.IBMObjectResult;
 
 public class EditActivity extends Activity {
 

@@ -41,11 +41,10 @@ import android.widget.TextView.OnEditorActionListener;
 import bolts.Continuation;
 import bolts.Task;
 
+import com.ibm.bluelist.dataobjects.Item;
 import com.ibm.mobile.services.data.IBMDataException;
 import com.ibm.mobile.services.data.IBMDataObject;
-import com.ibm.mobile.services.data.IBMObjectResult;
 import com.ibm.mobile.services.data.IBMQuery;
-import com.ibm.mobile.services.data.IBMQueryResult;
 
 public class MainActivity extends Activity {
 
