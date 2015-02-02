@@ -21,4 +21,4 @@ limitations under the License.
     android:gravity="center_vertical"
     android:padding="10dp"
     android:layout_marginLeft="10dp"
-/>
+    android:background="@drawable/plusbutton" />

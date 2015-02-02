@@ -15,12 +15,6 @@
  */
 package com.ibm.bluelist;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -28,9 +22,15 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.ibm.bluelist.dataobjects.Item;
+import com.ibm.bluelist.dataobjects.Topic;
 import com.ibm.mobile.services.core.IBMBluemix;
 import com.ibm.mobile.services.data.IBMData;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 public final class BlueListApplication extends Application {
 	private static final String APP_ID = "applicationID";
@@ -40,7 +40,7 @@ public final class BlueListApplication extends Application {
 	public static final int EDIT_ACTIVITY_RC = 1;
 	private static final String CLASS_NAME = BlueListApplication.class
 			.getSimpleName();
-	List<Item> itemList;
+	List<Topic> topicList;
 
 	public BlueListApplication() {
 		registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
@@ -94,7 +94,7 @@ public final class BlueListApplication extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		itemList = new ArrayList<Item>();
+		topicList = new ArrayList<Topic>();
 		// Read from properties file.
 		Properties props = new java.util.Properties();
 		Context context = getApplicationContext();
@@ -112,16 +112,16 @@ public final class BlueListApplication extends Application {
 		IBMBluemix.initialize(this, props.getProperty(APP_ID), props.getProperty(APP_SECRET), props.getProperty(APP_ROUTE));
 		// Initialize the IBM Data Service.
 		IBMData.initializeService();
-		// Register the Item Specialization.
-		Item.registerSpecialization(Item.class);
+		// Register the Topic Specialization.
+		Topic.registerSpecialization(Topic.class);
 	}
 
 	/**
-	 * returns the itemList, an array of Item objects.
+	 * returns the topicList, an array of Topic objects.
 	 * 
-	 * @return itemList
+	 * @return topicList
 	 */
-	public List<Item> getItemList() {
-		return itemList;
+	public List<Topic> getTopicList() {
+		return topicList;
 	}
 }

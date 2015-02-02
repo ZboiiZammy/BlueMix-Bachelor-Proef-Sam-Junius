@@ -18,14 +18,14 @@ package com.ibm.bluelist.dataobjects;
 import com.ibm.mobile.services.data.IBMDataObject;
 import com.ibm.mobile.services.data.IBMDataObjectSpecialization;
 
-@IBMDataObjectSpecialization("Item")
-public class Item extends IBMDataObject {
-	public static final String CLASS_NAME = "Item";
+@IBMDataObjectSpecialization("Topic")
+public class Topic extends IBMDataObject {
+	public static final String CLASS_NAME = "Topic";
 	private static final String NAME = "name";
 	
 	/**
-	 * Gets the name of the Item.
-	 * @return String itemName
+	 * Gets the name of the Topic.
+	 * @return String topicName
 	 */
 	public String getName() {
 		return (String) getObject(NAME);
@@ -33,7 +33,7 @@ public class Item extends IBMDataObject {
 
 	/**
 	 * Sets the name of a list item, as well as calls setCreationTime().
-	 * @param String itemName
+	 * @param String topicName
 	 */
 	public void setName(String itemName) {
 		setObject(NAME, (itemName != null) ? itemName : "");
@@ -41,11 +41,11 @@ public class Item extends IBMDataObject {
 	
 	/**
 	 * When calling toString() for an item, we'd really only want the name.
-	 * @return String theItemName
+	 * @return String theTopicName
 	 */
 	public String toString() {
-		String theItemName = "";
-		theItemName = getName();
-		return theItemName;
+		String theTopicName = "";
+        theTopicName = getName();
+		return theTopicName;
 	}
 }

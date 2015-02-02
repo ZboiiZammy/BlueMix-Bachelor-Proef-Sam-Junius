@@ -16,41 +16,47 @@
 
 package com.ibm.bluelist;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
-import bolts.Continuation;
-import bolts.Task;
 
-import com.ibm.bluelist.dataobjects.Item;
+import com.ibm.bluelist.dataobjects.Topic;
 import com.ibm.mobile.services.data.IBMDataException;
 import com.ibm.mobile.services.data.IBMDataObject;
 import com.ibm.mobile.services.data.IBMQuery;
+import com.squareup.picasso.Picasso;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import bolts.Continuation;
+import bolts.Task;
 
 public class MainActivity extends Activity {
 
-	List<Item> itemList;
+	List<Topic> topicList;
 	BlueListApplication blApplication;
-	ArrayAdapter<Item> lvArrayAdapter;
+	ListTopicsAdapter lvArrayAdapter;
 	ActionMode mActionMode = null;
 	int listItemPosition;
 	public static final String CLASS_NAME="MainActivity";
@@ -59,7 +65,7 @@ public class MainActivity extends Activity {
 	/**
 	 * onCreate called when main activity is created.
 	 * 
-	 * Sets up the itemList, application, and sets listeners.
+	 * Sets up the topicList, application, and sets listeners.
 	 *
 	 * @param savedInstanceState
 	 */
@@ -69,15 +75,26 @@ public class MainActivity extends Activity {
 		
 		/* Use application class to maintain global state. */
 		blApplication = (BlueListApplication) getApplication();
-		itemList = blApplication.getItemList();
+		topicList = blApplication.getTopicList();
 		
 		/* Set up the array adapter for items list view. */
 		ListView itemsLV = (ListView)findViewById(R.id.itemsList);
-		lvArrayAdapter = new ArrayAdapter<Item>(this, R.layout.list_item_1, itemList);
-		itemsLV.setAdapter(lvArrayAdapter);
+        lvArrayAdapter = new ListTopicsAdapter(this,topicList);
+        itemsLV.setAdapter(lvArrayAdapter);
+
 		
 		/* Refresh the list. */
-		listItems(); 
+		listItems();
+
+        /* Set short click listener */
+
+        itemsLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Topic topic = topicList.get(position);
+                Log.i("Topic Selected",topic.toString());
+            }
+        });
 
 		/* Set long click listener. */
 		itemsLV.setOnItemLongClickListener(new OnItemLongClickListener() {
@@ -94,6 +111,7 @@ public class MainActivity extends Activity {
 		    }
 		});
 		EditText itemToAdd = (EditText) findViewById(R.id.itemToAdd);
+
 		/* Set key listener for edittext (done key to accept item to list). */
 		itemToAdd.setOnEditorActionListener(new OnEditorActionListener() {
             @Override
@@ -107,6 +125,69 @@ public class MainActivity extends Activity {
         });
 	}
 
+    private class ListTopicsAdapter extends BaseAdapter{
+        Context context;
+
+        protected List<Topic> topicList;
+        LayoutInflater inflater;
+
+        public ListTopicsAdapter(Context context, List<Topic> topicList){
+            this.topicList = topicList;
+            this.context = context;
+            this.inflater = LayoutInflater.from(context);
+        }
+
+
+        @Override
+        public int getCount() {
+            return topicList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return topicList.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return Long.parseLong(String.valueOf(topicList.get(position).getObjectId().hashCode()));
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolderItem viewHolderItem;
+
+            if(convertView == null){
+                viewHolderItem = new ViewHolderItem();
+                convertView = this.inflater.inflate(R.layout.list_item_1,parent,false);
+
+                viewHolderItem.txtTopicName = (TextView) convertView.findViewById(R.id.text1);
+                convertView.setTag(viewHolderItem);
+            }else{
+                viewHolderItem = (ViewHolderItem) convertView.getTag();
+            }
+
+            Topic topic = topicList.get(position);
+            viewHolderItem.txtTopicName.setText(topic.getName());
+            ImageView img = new ImageView(context);
+            String url = "http://sam-informatics.com/projects/finalwork/"+topic.getName()+".jpg";
+            Picasso.with(context).load(url).into(img);
+            if(img!=null) {
+                viewHolderItem.txtTopicName.setBackground(img.getDrawable());
+            }else{
+                Log.i("image",url);
+            }
+
+            return convertView;
+        }
+
+        private class ViewHolderItem{
+            TextView txtTopicName;
+        }
+    }
+
+
+
 	/**
 	 * Removes text on click of x button.
 	 *
@@ -118,19 +199,19 @@ public class MainActivity extends Activity {
 	}
 	
 	/**
-	 * Refreshes itemList from data service.
+	 * Refreshes topicList from data service.
 	 * 
 	 * An IBMQuery is used to find all the list items.
 	 */
 	public void listItems() {
 		try {
-			IBMQuery<Item> query = IBMQuery.queryForClass(Item.class);
-			// Query all the Item objects from the server.
-			query.find().continueWith(new Continuation<List<Item>, Void>() {
+			IBMQuery<Topic> query = IBMQuery.queryForClass(Topic.class);
+			// Query all the Topic objects from the server.
+			query.find().continueWith(new Continuation<List<Topic>, Void>() {
 
 				@Override
-				public Void then(Task<List<Item>> task) throws Exception {
-                    final List<Item> objects = task.getResult();
+				public Void then(Task<List<Topic>> task) throws Exception {
+                    final List<Topic> objects = task.getResult();
                      // Log if the find was cancelled.
                     if (task.isCancelled()){
                         Log.e(CLASS_NAME, "Exception : Task " + task.toString() + " was cancelled.");
@@ -143,13 +224,13 @@ public class MainActivity extends Activity {
 					
 					 // If the result succeeds, load the list.
 					else {
-                        // Clear local itemList.
+                        // Clear local topicList.
                         // We'll be reordering and repopulating from DataService.
-                        itemList.clear();
+                        topicList.clear();
                         for(IBMDataObject item:objects) {
-                            itemList.add((Item) item);
+                            topicList.add((Topic) item);
                         }
-                        sortItems(itemList);
+                        sortItems(topicList);
                         lvArrayAdapter.notifyDataSetChanged();
 					}
 					return null;
@@ -171,7 +252,7 @@ public class MainActivity extends Activity {
 		{
 		/* If an edit has been made, notify that the data set has changed. */
 		case BlueListApplication.EDIT_ACTIVITY_RC:
-			sortItems(itemList);
+			sortItems(topicList);
 			lvArrayAdapter.notifyDataSetChanged();
     		break;
 		}
@@ -186,11 +267,11 @@ public class MainActivity extends Activity {
 	public void createItem(View v) {
 		EditText itemToAdd = (EditText) findViewById(R.id.itemToAdd);
 		String toAdd = itemToAdd.getText().toString();
-		Item item = new Item();
+		Topic topic = new Topic();
 		if (!toAdd.equals("")) {
-			item.setName(toAdd);
-			// Use the IBMDataObject to create and persist the Item object.
-			item.save().continueWith(new Continuation<IBMDataObject, Void>() {
+			topic.setName(toAdd);
+			// Use the IBMDataObject to create and persist the Topic object.
+			topic.save().continueWith(new Continuation<IBMDataObject, Void>() {
 
 				@Override
 				public Void then(Task<IBMDataObject> task) throws Exception {
@@ -212,21 +293,21 @@ public class MainActivity extends Activity {
 
 			});
 			
-			// Set text field back to empty after item is added.
+			// Set text field back to empty after topic is added.
 			itemToAdd.setText("");
 		}
 	}
 	
 	/**
-	 * Will delete an item from the list.
+	 * Will delete an topic from the list.
 	 *
-	 * @param  Item item to be deleted
+	 * @param  Item topic to be deleted
 	 */
-	public void deleteItem(Item item) {
-		itemList.remove(listItemPosition);
+	public void deleteItem(Topic topic) {
+		topicList.remove(listItemPosition);
 		
-		// This will attempt to delete the item on the server.
-		item.delete().continueWith(new Continuation<IBMDataObject, Void>() {
+		// This will attempt to delete the topic on the server.
+		topic.delete().continueWith(new Continuation<IBMDataObject, Void>() {
 
 			@Override
 			public Void then(Task<IBMDataObject> task) throws Exception {
@@ -264,13 +345,13 @@ public class MainActivity extends Activity {
 	
 	/**
 	 * Sort a list of Items.
-	 * @param List<Item> theList
+	 * @param List<Topic> theList
 	 */
-	private void sortItems(List<Item> theList) {
+	private void sortItems(List<Topic> theList) {
 		// Sort collection by case insensitive alphabetical order.
-		Collections.sort(theList, new Comparator<Item>() {
-			public int compare(Item lhs,
-					Item rhs) {
+		Collections.sort(theList, new Comparator<Topic>() {
+			public int compare(Topic lhs,
+					Topic rhs) {
 				String lhsName = lhs.getName();
 				String rhsName = rhs.getName();
 				return lhsName.compareToIgnoreCase(rhsName);
@@ -298,17 +379,17 @@ public class MainActivity extends Activity {
 		 * @param ActionMode mode and MenuItem item clicked
 		 */
 	    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-	    	Item lItem = itemList.get(listItemPosition);
+	    	Topic lTopic = topicList.get(listItemPosition);
 	    	/* Switch dependent on which action item was clicked. */
 	    	switch (item.getItemId()) {
 	    		/* On edit, get all info needed & send to new, edit activity. */
 	            case R.id.action_edit:
-	            	updateItem(lItem.getName());
+	            	updateItem(lTopic.getName());
 	                mode.finish(); /* Action picked, so close the CAB. */
 	                return true;
 	            /* On delete, remove list item & update. */
 	            case R.id.action_delete:
-	            	deleteItem(lItem);
+	            	deleteItem(lTopic);
 	                mode.finish(); /* Action picked, so close the CAB. */
 	            default:
 	                return false;

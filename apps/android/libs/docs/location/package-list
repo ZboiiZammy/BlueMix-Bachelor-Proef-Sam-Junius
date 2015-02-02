@@ -1,0 +1,6 @@
+com.ibm.mobile.services.location
+com.ibm.mobile.services.location.device
+com.ibm.mobile.services.location.device.geo
+com.ibm.mobile.services.location.geo
+com.ibm.mobile.services.location.geo.triggers
+com.ibm.mobile.services.location.objects

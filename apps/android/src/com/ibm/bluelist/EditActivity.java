@@ -28,7 +28,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import com.ibm.bluelist.dataobjects.Item;
+import com.ibm.bluelist.dataobjects.Topic;
 import com.ibm.mobile.services.data.IBMDataObject;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class EditActivity extends Activity {
 	String originalItem;
 	int location;
 	BlueListApplication blApplication;
-	List<Item> itemList;
+	List<Topic> topicList;
 	public static final String CLASS_NAME="EditActivity";
 	
 	@Override
@@ -56,7 +56,7 @@ public class EditActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		/* Get application context, item list. */
 		blApplication = (BlueListApplication) getApplicationContext();
-		itemList = blApplication.getItemList();
+		topicList = blApplication.getTopicList();
 		setContentView(R.layout.activity_edit);
 		
 		/* Information required to edit item. */
@@ -80,14 +80,14 @@ public class EditActivity extends Activity {
 	}
 
 	/**
-	 * On completion of edit, edit itemList, return to main activity with edit return code.
+	 * On completion of edit, edit topicList, return to main activity with edit return code.
 	 * @param View v
 	 */
 	public void finishedEdit(View v) {
-		Item item = itemList.get(location);
+		Topic topic = topicList.get(location);
 		EditText itemToEdit = (EditText) findViewById(R.id.itemToEdit);
 		String text = itemToEdit.getText().toString();
-		item.setName(text);
+		topic.setName(text);
 		/**
 		 * IBMObjectResult is used to handle the response from the server after 
 		 * either creating or saving an object.
@@ -95,7 +95,7 @@ public class EditActivity extends Activity {
 		 * onResult is called if the object was successfully saved.
 		 * onError is called if an error occurred saving the object. 
 		 */
-		item.save().continueWith(new Continuation<IBMDataObject, Void>() {
+		topic.save().continueWith(new Continuation<IBMDataObject, Void>() {
 
 			@Override
 			public Void then(Task<IBMDataObject> task) throws Exception {

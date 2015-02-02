@@ -58,7 +58,7 @@ limitations under the License.
 		    android:layout_marginLeft="10dp">
 		</Button>
 	</RelativeLayout>
-    <TextView
+    <!--<TextView
         android:id="@+id/titleText"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
@@ -70,7 +70,7 @@ limitations under the License.
         android:textSize="28sp"
         android:padding="10dp"
         android:background="@drawable/titlelines">
-    </TextView>
+    </TextView>-->
     <ListView
         android:id="@+id/itemsList"
         android:layout_width="match_parent"
