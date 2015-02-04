@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-IBMBluemix.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-IBMData.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-IBMFileSync.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>681011BFD7DF7F8F7B1EB55A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A40133B893EEEBBC521193D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B2EF473BB9A15AE7DF55A161</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE18124F54084C85A1D610A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

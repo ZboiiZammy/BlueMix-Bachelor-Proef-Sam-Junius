@@ -20,7 +20,7 @@
 // Test-subject headers
 
 #import "IBM_AppDelegate.h"
-#import "IBM_CreateEditItemViewController.h"
+#import "IBM_CreateEditTopicViewController.h"
 #import "IBM_ListViewController.h"
 
 @interface BlueList_Tests : XCTestCase {
@@ -28,7 +28,7 @@
     IBM_AppDelegate                     *app_delegate;
     IBM_ListViewController              *list_view_controller;
     UIView                              *list_view;
-    IBM_CreateEditItemViewController    *create_edit_view_controller;
+    IBM_CreateEditTopicViewController    *create_edit_view_controller;
     UIView                              *create_edit_view;
 }
 

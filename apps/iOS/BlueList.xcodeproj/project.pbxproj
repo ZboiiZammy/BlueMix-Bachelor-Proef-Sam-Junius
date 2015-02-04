@@ -11,7 +11,9 @@
 		71038C1819E495AE00419080 /* BlueList_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71038C1719E495AE00419080 /* BlueList_Tests.m */; };
 		9708241919707B3E00DAC2C4 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9708241819707B3E00DAC2C4 /* libsqlite3.dylib */; };
 		9708241B19707B5300DAC2C4 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9708241A19707B5300DAC2C4 /* libsqlite3.0.dylib */; };
-		FA39EA2518633FB400FB525E /* IBM_Item.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39EA2418633FB400FB525E /* IBM_Item.m */; };
+		EE0516141A825A6E002CCE49 /* IBM_ListViewBPController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0516131A825A6E002CCE49 /* IBM_ListViewBPController.m */; };
+		EE0516161A825AAB002CCE49 /* IBM_BestPractise.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0516151A825AAB002CCE49 /* IBM_BestPractise.m */; };
+		FA39EA2518633FB400FB525E /* IBM_Topic.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39EA2418633FB400FB525E /* IBM_Topic.m */; };
 		FAD04BD71862058500DE0A19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD04BD61862058500DE0A19 /* Foundation.framework */; };
 		FAD04BD91862058500DE0A19 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD04BD81862058500DE0A19 /* CoreGraphics.framework */; };
 		FAD04BDB1862058500DE0A19 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD04BDA1862058500DE0A19 /* UIKit.framework */; };
@@ -21,7 +23,7 @@
 		FAD04BE91862058500DE0A19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD04BE81862058500DE0A19 /* Images.xcassets */; };
 		FAD04C061862250000DE0A19 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD04C051862250000DE0A19 /* main.storyboard */; };
 		FAD04C0A186233D000DE0A19 /* IBM_ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD04C09186233D000DE0A19 /* IBM_ListViewController.m */; };
-		FAD04C0D1862340500DE0A19 /* IBM_CreateEditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD04C0C1862340500DE0A19 /* IBM_CreateEditItemViewController.m */; };
+		FAD04C0D1862340500DE0A19 /* IBM_CreateEditTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD04C0C1862340500DE0A19 /* IBM_CreateEditTopicViewController.m */; };
 		FAFF9DE318F01A3C007EBD9E /* bluelist.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAFF9DE218F01A3C007EBD9E /* bluelist.plist */; };
 /* End PBXBuildFile section */
 
@@ -43,9 +45,13 @@
 		9708241819707B3E00DAC2C4 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9708241A19707B5300DAC2C4 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D7EFDEF6C4AFB1100C082FE0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EE0516121A825A6E002CCE49 /* IBM_ListViewBPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBM_ListViewBPController.h; sourceTree = "<group>"; };
+		EE0516131A825A6E002CCE49 /* IBM_ListViewBPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBM_ListViewBPController.m; sourceTree = "<group>"; };
+		EE0516151A825AAB002CCE49 /* IBM_BestPractise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBM_BestPractise.m; sourceTree = "<group>"; };
+		EE0516171A825AC4002CCE49 /* IBM_BestPractise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IBM_BestPractise.h; sourceTree = "<group>"; };
 		EE4EB3E6D6A2C5C472E70B78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		FA39EA2318633FB400FB525E /* IBM_Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBM_Item.h; sourceTree = "<group>"; };
-		FA39EA2418633FB400FB525E /* IBM_Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBM_Item.m; sourceTree = "<group>"; };
+		FA39EA2318633FB400FB525E /* IBM_Topic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBM_Topic.h; sourceTree = "<group>"; };
+		FA39EA2418633FB400FB525E /* IBM_Topic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBM_Topic.m; sourceTree = "<group>"; };
 		FAD04BD31862058500DE0A19 /* BlueList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD04BD61862058500DE0A19 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FAD04BD81862058500DE0A19 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,8 +67,8 @@
 		FAD04C051862250000DE0A19 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = main.storyboard; path = ../main.storyboard; sourceTree = "<group>"; };
 		FAD04C08186233D000DE0A19 /* IBM_ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBM_ListViewController.h; sourceTree = "<group>"; };
 		FAD04C09186233D000DE0A19 /* IBM_ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBM_ListViewController.m; sourceTree = "<group>"; };
-		FAD04C0B1862340500DE0A19 /* IBM_CreateEditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBM_CreateEditItemViewController.h; sourceTree = "<group>"; };
-		FAD04C0C1862340500DE0A19 /* IBM_CreateEditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBM_CreateEditItemViewController.m; sourceTree = "<group>"; };
+		FAD04C0B1862340500DE0A19 /* IBM_CreateEditTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBM_CreateEditTopicViewController.h; sourceTree = "<group>"; };
+		FAD04C0C1862340500DE0A19 /* IBM_CreateEditTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBM_CreateEditTopicViewController.m; sourceTree = "<group>"; };
 		FAFF9DE218F01A3C007EBD9E /* bluelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluelist.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,8 +134,10 @@
 		FA39EA2218633F8900FB525E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				FA39EA2318633FB400FB525E /* IBM_Item.h */,
-				FA39EA2418633FB400FB525E /* IBM_Item.m */,
+				FA39EA2318633FB400FB525E /* IBM_Topic.h */,
+				FA39EA2418633FB400FB525E /* IBM_Topic.m */,
+				EE0516151A825AAB002CCE49 /* IBM_BestPractise.m */,
+				EE0516171A825AC4002CCE49 /* IBM_BestPractise.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -196,8 +204,10 @@
 		FAD04C071862339F00DE0A19 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				FAD04C0B1862340500DE0A19 /* IBM_CreateEditItemViewController.h */,
-				FAD04C0C1862340500DE0A19 /* IBM_CreateEditItemViewController.m */,
+				EE0516121A825A6E002CCE49 /* IBM_ListViewBPController.h */,
+				EE0516131A825A6E002CCE49 /* IBM_ListViewBPController.m */,
+				FAD04C0B1862340500DE0A19 /* IBM_CreateEditTopicViewController.h */,
+				FAD04C0C1862340500DE0A19 /* IBM_CreateEditTopicViewController.m */,
 				FAD04C08186233D000DE0A19 /* IBM_ListViewController.h */,
 				FAD04C09186233D000DE0A19 /* IBM_ListViewController.m */,
 			);
@@ -345,11 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD04C0D1862340500DE0A19 /* IBM_CreateEditItemViewController.m in Sources */,
+				FAD04C0D1862340500DE0A19 /* IBM_CreateEditTopicViewController.m in Sources */,
 				FAD04BE31862058500DE0A19 /* main.m in Sources */,
 				FAD04BE71862058500DE0A19 /* IBM_AppDelegate.m in Sources */,
+				EE0516161A825AAB002CCE49 /* IBM_BestPractise.m in Sources */,
+				EE0516141A825A6E002CCE49 /* IBM_ListViewBPController.m in Sources */,
 				FAD04C0A186233D000DE0A19 /* IBM_ListViewController.m in Sources */,
-				FA39EA2518633FB400FB525E /* IBM_Item.m in Sources */,
+				FA39EA2518633FB400FB525E /* IBM_Topic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +561,7 @@
 				71038C1C19E495AE00419080 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAD04BCE1862058500DE0A19 /* Build configuration list for PBXProject "BlueList" */ = {
 			isa = XCConfigurationList;

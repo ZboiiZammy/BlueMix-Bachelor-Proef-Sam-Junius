@@ -10,31 +10,31 @@
 	<string>BlueList</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>92E2E258-0A20-45E1-8892-0F2C26BEF11C</key>
-		<string>https://hub.jazz.net/git/mobilecloud/bluelist-mobiledata</string>
+		<key>B898DB0551B6FE7CD955357D7ACA2C520258277D</key>
+		<string>https://github.com/ZboiiZammy/BlueMix-Bachelor-Proef-Sam-Junius.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>bluelist-mobiledata-iOS/BlueList.xcodeproj/project.xcworkspace</string>
+	<string>apps/iOS/BlueList.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>92E2E258-0A20-45E1-8892-0F2C26BEF11C</key>
-		<string>../../..</string>
+		<key>B898DB0551B6FE7CD955357D7ACA2C520258277D</key>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://hub.jazz.net/git/mobilecloud/bluelist-mobiledata</string>
+	<string>https://github.com/ZboiiZammy/BlueMix-Bachelor-Proef-Sam-Junius.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>92E2E258-0A20-45E1-8892-0F2C26BEF11C</string>
+	<string>B898DB0551B6FE7CD955357D7ACA2C520258277D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>92E2E258-0A20-45E1-8892-0F2C26BEF11C</string>
+			<string>B898DB0551B6FE7CD955357D7ACA2C520258277D</string>
 			<key>IDESourceControlWCCName</key>
-			<string>bluelist-mobiledata</string>
+			<string>BlueMix-Bachelor-Proef-Sam-Junius</string>
 		</dict>
 	</array>
 </dict>

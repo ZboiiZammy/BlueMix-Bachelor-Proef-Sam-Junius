@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>applicationId</key>
-	<string></string>
+	<string>e284e3c7-a92d-4e58-bf3a-a96159f82048</string>
 	<key>applicationSecret</key>
-	<string></string>
+	<string>6ec16fb1d316e1853edbb4871452d268290a5037</string>
 	<key>applicationRoute</key>
-	<string></string>
+	<string>http://best-practise-discussion.eu-gb.mybluemix.net</string>
 </dict>
 </plist>
