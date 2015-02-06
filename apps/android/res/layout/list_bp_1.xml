@@ -1,0 +1,47 @@
+<!-- 
+Copyright 2014 IBM Corp. All Rights Reserved
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+http://www.apache.org/licenses/LICENSE-2.0  
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@android:color/black"
+    android:textSize="30sp"
+    android:gravity="center_vertical"
+    android:layout_marginLeft="10dp"
+    android:text="Title"
+    android:textStyle="bold"
+    android:paddingBottom="0dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingRight="10dp" />
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtSummary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/list_text_color"
+    android:textSize="15sp"
+    android:gravity="center_vertical"
+    android:layout_marginLeft="10dp"
+    android:text="lasdasljd alsjd asljdasldj asljhdasd asljd"
+    android:singleLine="false"
+    android:paddingLeft="10dp"
+    android:paddingTop="0dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp" />
+    </LinearLayout>

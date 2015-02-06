@@ -66,6 +66,7 @@ public class MainActivity extends Activity {
     ActionMode mActionMode = null;
     int listItemPosition;
     public static final String CLASS_NAME = "MainActivity";
+    public final static String EXTRA_TOPIC = "com.ibm.bluelist.TOPIC";
 
     @Override
     /**
@@ -99,6 +100,10 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Topic topic = topicList.get(position);
                 Log.i("Topic Selected", topic.toString());
+
+                Intent intent = new Intent(MainActivity.this, TopicActivity.class);
+                intent.putExtra(EXTRA_TOPIC,topic.toString());
+                startActivity(intent);
             }
         });
 
@@ -156,7 +161,7 @@ public class MainActivity extends Activity {
 
         @Override
         public long getItemId(int position) {
-            return Long.parseLong(String.valueOf(topicList.get(position).getObjectId().hashCode()));
+            return topicList.get(position).getObjectId().hashCode();
         }
 
         @Override

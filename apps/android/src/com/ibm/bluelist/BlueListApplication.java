@@ -22,6 +22,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.ibm.bluelist.dataobjects.BestPractise;
 import com.ibm.bluelist.dataobjects.Topic;
 import com.ibm.mobile.services.core.IBMBluemix;
 import com.ibm.mobile.services.data.IBMData;
@@ -41,6 +42,7 @@ public final class BlueListApplication extends Application {
 	private static final String CLASS_NAME = BlueListApplication.class
 			.getSimpleName();
 	List<Topic> topicList;
+    List<BestPractise> bestPractiseList;
 
 	public BlueListApplication() {
 		registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
@@ -95,6 +97,7 @@ public final class BlueListApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		topicList = new ArrayList<Topic>();
+        bestPractiseList = new ArrayList<BestPractise>();
 		// Read from properties file.
 		Properties props = new java.util.Properties();
 		Context context = getApplicationContext();
@@ -124,4 +127,8 @@ public final class BlueListApplication extends Application {
 	public List<Topic> getTopicList() {
 		return topicList;
 	}
+
+    public List<BestPractise> getBestPractiseList() {
+        return bestPractiseList;
+    }
 }

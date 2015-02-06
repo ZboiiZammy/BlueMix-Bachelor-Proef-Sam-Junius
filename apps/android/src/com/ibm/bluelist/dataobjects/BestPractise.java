@@ -18,34 +18,44 @@ package com.ibm.bluelist.dataobjects;
 import com.ibm.mobile.services.data.IBMDataObject;
 import com.ibm.mobile.services.data.IBMDataObjectSpecialization;
 
-@IBMDataObjectSpecialization("Topic")
+@IBMDataObjectSpecialization("BestPractise")
 public class BestPractise extends IBMDataObject {
-	public static final String CLASS_NAME = "Topic";
-	private static final String NAME = "name";
-	
-	/**
-	 * Gets the name of the Topic.
-	 * @return String topicName
-	 */
-	public String getName() {
-		return (String) getObject(NAME);
-	}
+	public static final String CLASS_NAME = "BestPractise";
+	private static final String TITLE = "title";
+	private static final String TEXT = "text";
+	private static final String TOPIC = "topic";
 
-	/**
-	 * Sets the name of a list item, as well as calls setCreationTime().
-	 * @param String topicName
-	 */
-	public void setName(String itemName) {
-		setObject(NAME, (itemName != null) ? itemName : "");
-	}
+    public String getTitle() {
+        return (String) getObject(TITLE);
+    }
+
+    public String getText() {
+        return (String) getObject(TEXT);
+    }
+
+    public String getTopic() {
+        return (String) getObject(TOPIC);
+    }
+
+    public void setTitle(String bpTitle){
+        setObject(TITLE, (bpTitle != null) ? bpTitle : "");
+    }
+
+    public void setText(String bpText){
+        setObject(TEXT, (bpText != null) ? bpText : "");
+    }
+
+    public void setTopic(String bpTopic){
+        setObject(TOPIC, (bpTopic != null) ? bpTopic : "");
+    }
 	
 	/**
 	 * When calling toString() for an item, we'd really only want the name.
 	 * @return String theTopicName
 	 */
 	public String toString() {
-		String theTopicName = "";
-        theTopicName = getName();
-		return theTopicName;
+		String theBPTitle = "";
+        theBPTitle = getTitle();
+		return theBPTitle;
 	}
 }

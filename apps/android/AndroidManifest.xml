@@ -50,6 +50,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ibm.bluelist.MainActivity" />
         </activity>
+        <activity
+            android:name=".BPAddActivity"
+            android:label="@string/title_activity_bpadd"
+            android:parentActivityName=".TopicActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ibm.bluelist.TopicActivity" />
+        </activity>
     </application>
 
 </manifest>
