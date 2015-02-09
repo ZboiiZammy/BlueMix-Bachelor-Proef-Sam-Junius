@@ -54,3 +54,7 @@ Het eindresultaat van deze bachelorproef bestaat uit volgende onderdelen:
 Ook is er even de opbouw bekeken van de hele applicatie en dit geeft dit resultaat: (schets)
   <img src="http://i.imgur.com/pqSw1TM.jpg"/>
 *  **04/02/2015** - de iOS applicatie bekeken voor de eerste keer. Heb wat zaken op mijn Macbook moeten instaleren zoals 'Pods' maar heb deze app veel sneller werkende gekregen als de Android paplicatie. Heb zoals bij de android applicatie de skeleton applicatie opgebouwd zodat het concept tegemoet komt. Buiten de afbeeldingen werkt alles al. Volgende is het focussen op het 2e scherm.
+* **05/02/2015** - Het scherm ontwikkeld voor het toevoegen van een 'Best Practise'
+* **06/02/2015** - Het scherm voor het toevoegen van een 'Best Practise' ontwikkeld. Nu blijkt dat na het toevoegen van een BP Object dit WEL terecht komt in mijn databank maar niet op het scherm dat alle BP's moet tonen van dat topic.
+* **07/02/2015** - Verder gekeken naar waarom de BP's niet tonen. Geen oplossing gevonden..
+* **09/02/2015** -
