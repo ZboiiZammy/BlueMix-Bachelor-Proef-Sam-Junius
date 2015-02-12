@@ -27,13 +27,13 @@
                                             <rect key="frame" x="15" y="0.0" width="270" height="38"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.34509804840000002" green="0.40784317260000003" blue="0.43137258290000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="dcX-ts-ffO" kind="push" id="G3b-gj-HAs"/>
+                                    <segue destination="dcX-ts-ffO" kind="push" identifier="OpenBPList" id="93P-Mt-Mje"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -54,7 +54,7 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="WRd-WR-GmR">
                         <autoresizingMask key="autoresizingMask"/>
                         <attributedString key="attributedTitle">
-                            <fragment content="Refreshing Items">
+                            <fragment content="Refreshing Topics">
                                 <attributes>
                                     <font key="NSFont" metaFont="toolTip"/>
                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
@@ -202,13 +202,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QU2-hc-4IH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cV0-wJ-Sa6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1477" y="-30"/>
+            <point key="canvasLocation" x="1477" y="578"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Best Practises-->
         <scene sceneID="eaV-9L-u5m">
             <objects>
-                <tableViewController id="IRA-tU-ulY" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="39" sectionHeaderHeight="22" sectionFooterHeight="22" id="gYy-bi-sqL">
+                <tableViewController storyboardIdentifier="IBM_BPListViewController" id="IRA-tU-ulY" customClass="IBM_ListViewBPController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gYy-bi-sqL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -219,6 +219,14 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="agE-bf-Gbr" id="Qlq-l8-dzh">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Best Practise 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1k-Zw-xrb">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="38"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -227,11 +235,22 @@
                             <outlet property="delegate" destination="IRA-tU-ulY" id="LfR-9V-HVx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="gip-2B-eXl"/>
+                    <navigationItem key="navigationItem" title="Best Practises" id="gip-2B-eXl"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="dF2-Hv-bVE">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle">
+                            <fragment content="Refreshing BPs">
+                                <attributes>
+                                    <font key="NSFont" metaFont="toolTip"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tm-tM-sZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1477" y="623"/>
+            <point key="canvasLocation" x="1477" y="-113"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lkd-Gg-yql">
@@ -248,7 +267,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZl-Vs-Mbv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="623"/>
+            <point key="canvasLocation" x="1061" y="-118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XIT-3d-EpF">
@@ -267,7 +286,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dzS-xo-M5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="-30"/>
+            <point key="canvasLocation" x="1061" y="578"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
