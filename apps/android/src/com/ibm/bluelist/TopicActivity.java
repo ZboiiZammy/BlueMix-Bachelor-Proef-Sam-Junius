@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.ibm.bluelist.dataobjects.BestPractise;
 import com.ibm.mobile.services.data.IBMDataException;
-import com.ibm.mobile.services.data.IBMDataObject;
 import com.ibm.mobile.services.data.IBMQuery;
 
 import java.util.Collections;
@@ -100,10 +99,16 @@ public class TopicActivity extends Activity {
                     } else if (listTask.isFaulted()) {
                         Log.e(CLASS_NAME, "Exception : " + listTask.getError().getMessage());
                     } else {
+                        Log.i("test", String.valueOf(objects.size()));
+                        Log.i("test", String.valueOf(objects.get(0).getClass()));
                         bestPractiseList.clear();
-                        for (IBMDataObject bp : objects) {
-                            Log.i("test","test");
-                            bestPractiseList.add((BestPractise) bp);
+                        for (BestPractise bp : objects) {
+                            Log.i("test", "test");
+                            try {
+                                bestPractiseList.add(bp);
+                            }catch(Exception e){
+                                Log.i("ERROR",e.getMessage());
+                            }
                         }
                         sortItems(bestPractiseList);
                         lvArrayAdapter.notifyDataSetChanged();

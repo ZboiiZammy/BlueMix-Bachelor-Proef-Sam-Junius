@@ -251,7 +251,6 @@ public class MainActivity extends Activity {
             IBMQuery<Topic> query = IBMQuery.queryForClass(Topic.class);
             // Query all the Topic objects from the server.
             query.find().continueWith(new Continuation<List<Topic>, Void>() {
-
                 @Override
                 public Void then(Task<List<Topic>> task) throws Exception {
                     final List<Topic> objects = task.getResult();
@@ -263,16 +262,13 @@ public class MainActivity extends Activity {
                     else if (task.isFaulted()) {
                         Log.e(CLASS_NAME, "Exception : " + task.getError().getMessage());
                     }
-
-
                     // If the result succeeds, load the list.
                     else {
                         // Clear local topicList.
                         // We'll be reordering and repopulating from DataService.
                         topicList.clear();
-                        for (IBMDataObject item : objects) {
-                            topicList.add((Topic) item);
-
+                        for (Topic item : objects) {
+                            topicList.add(item);
                         }
                         sortItems(topicList);
                         lvArrayAdapter.notifyDataSetChanged();
