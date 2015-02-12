@@ -76,7 +76,7 @@ public class TopicActivity extends Activity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add_topic) {
             Intent intent = new Intent(TopicActivity.this, BPAddActivity.class);
-            intent.putExtra(EXTRA_TOPIC_ADD,selectedTopic);
+            intent.putExtra(EXTRA_TOPIC_ADD, selectedTopic);
             startActivity(intent);
             return true;
         }
@@ -95,44 +95,28 @@ public class TopicActivity extends Activity {
                     final List<BestPractise> objects = listTask.getResult();
 
 
-
-                    if(listTask.isCancelled()){
+                    if (listTask.isCancelled()) {
                         Log.e(CLASS_NAME, "Exception : Task " + listTask.toString() + " was cancelled.");
-                    }else if(listTask.isFaulted()){
+                    } else if (listTask.isFaulted()) {
                         Log.e(CLASS_NAME, "Exception : " + listTask.getError().getMessage());
-                    }else{
+                    } else {
                         bestPractiseList.clear();
-
-
-
-                        for(IBMDataObject bp : objects){
-
-                            BestPractise bestPrac = (BestPractise) bp;
-
-                            Log.i("DB","New DB Object comming in: "+ ((BestPractise) bp).getTitle());
-
-                            //NAKIJKEN OF TOPIC HETZELFDE IS
-                            if(bestPrac.getTopic().compareToIgnoreCase(selectedTopic)==0) {
-
-                                bestPractiseList.add(bestPrac);
-                                Log.i("DB","DB Object Added: "+ ((BestPractise) bp).getTitle());
-                            }
+                        for (IBMDataObject bp : objects) {
+                            Log.i("test","test");
+                            bestPractiseList.add((BestPractise) bp);
                         }
                         sortItems(bestPractiseList);
                         lvArrayAdapter.notifyDataSetChanged();
                     }
-
                     return null;
                 }
             }, Task.UI_THREAD_EXECUTOR);
         } catch (IBMDataException e) {
             Log.e(CLASS_NAME, "Exception : " + e.getMessage());
         }
-
-
     }
 
-    private void sortItems(List<BestPractise> theList){
+    private void sortItems(List<BestPractise> theList) {
         Collections.sort(theList, new Comparator<BestPractise>() {
             @Override
             public int compare(BestPractise lhs, BestPractise rhs) {

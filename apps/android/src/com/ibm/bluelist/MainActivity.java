@@ -272,6 +272,7 @@ public class MainActivity extends Activity {
                         topicList.clear();
                         for (IBMDataObject item : objects) {
                             topicList.add((Topic) item);
+
                         }
                         sortItems(topicList);
                         lvArrayAdapter.notifyDataSetChanged();
