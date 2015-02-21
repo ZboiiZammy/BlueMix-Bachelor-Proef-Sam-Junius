@@ -10,6 +10,9 @@
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.ibm.bluelist.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
@@ -29,6 +32,10 @@
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -37,6 +44,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- Push Settings Start -->
+            <!-- Notification Intent -->
+            <intent-filter>
+                <action android:name="com.ibm.bluelist.IBMPushNotification" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- Push Settings End -->
         </activity>
         <activity
             android:name=".EditActivity"
@@ -58,6 +74,35 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ibm.bluelist.TopicActivity" />
         </activity>
+        <activity
+            android:name=".BPActivity"
+            android:label="@string/title_activity_bp"
+            android:parentActivityName=".TopicActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ibm.bluelist.TopicActivity" />
+        </activity>
+
+        <!-- Add GCM Intent Service and intent-filters for RECEIVE and REGISTRATION of notifications -->
+        <service android:name="com.ibm.mobile.services.push.IBMPushIntentService" />
+
+        <receiver
+            android:name="com.ibm.mobile.services.push.IBMPushBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.ibm.mobile.push.sdk.client.android.sample" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.ibm.mobile.push.sdk.client.android.sample" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Push Settings End -->
+
     </application>
 
 </manifest>

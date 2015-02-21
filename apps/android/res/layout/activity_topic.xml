@@ -3,14 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TopicActivity" >
+    tools:context=".TopicActivity">
 
     <ListView
         android:id="@+id/bestPractisesList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/background">
-    </ListView>
-
+        android:background="@color/background"></ListView>
 </LinearLayout>

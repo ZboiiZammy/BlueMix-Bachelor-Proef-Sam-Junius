@@ -11,14 +11,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ibm.bluelist.dataobjects.BestPractise;
+import com.ibm.mobile.services.cloudcode.IBMCloudCode;
+import com.ibm.mobile.services.core.http.IBMHttpResponse;
 import com.ibm.mobile.services.data.IBMDataException;
+import com.ibm.mobile.services.data.IBMDataObject;
 import com.ibm.mobile.services.data.IBMQuery;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -37,6 +48,8 @@ public class TopicActivity extends Activity {
     public static final String CLASS_NAME = "MainActivity";
     private String selectedTopic;
     public final static String EXTRA_TOPIC_ADD = "com.ibm.bluelist.TOPIC";
+    public final static String EXTRA_BP_TITLE = "com.ibm.bluelist.TITLE";
+    public final static String EXTRA_BP_TEXT = "com.ibm.bluelist.TEXT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +59,98 @@ public class TopicActivity extends Activity {
         Intent intent = getIntent();
         this.selectedTopic = intent.getStringExtra(MainActivity.EXTRA_TOPIC);
 
+        setTitle(this.selectedTopic + " Best Practises");
+
         blApplication = (BlueListApplication) getApplication();
         bestPractiseList = blApplication.getBestPractiseList();
 
         ListView bestPractisesLV = (ListView) findViewById(R.id.bestPractisesList);
-        lvArrayAdapter = new ListBPAdapter(this, bestPractiseList);
+        lvArrayAdapter = new ListBPAdapter<BestPractise>(this, bestPractiseList); /*CHECK OUT THIS*/
         bestPractisesLV.setAdapter(lvArrayAdapter);
 
         listBPs();
 
         /* SET KEY LISTENERS */
+
+        bestPractisesLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BestPractise bp = bestPractiseList.get(position);
+
+                Intent intent = new Intent(TopicActivity.this, BPActivity.class);
+                intent.putExtra(EXTRA_BP_TITLE,bp.getTitle());
+                intent.putExtra(EXTRA_BP_TEXT,bp.getText());
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(CLASS_NAME,"Activity Result code : " + resultCode);
+        switch (resultCode)
+        {
+            case BlueListApplication.EDIT_ACTIVITY_RC:
+                updateOtherDevices();
+                sortItems(bestPractiseList);
+                lvArrayAdapter.notifyDataSetChanged();
+                break;
+        }
+    }
+
+    /**
+     * Send a notification to all devices whenever the BlueList is modified (create, update, or delete).
+     */
+    private void updateOtherDevices() {
+
+        // Initialize and retrieve an instance of the IBM CloudCode service.
+        IBMCloudCode.initializeService();
+        IBMCloudCode myCloudCodeService = IBMCloudCode.getService();
+        JSONObject jsonObj = new JSONObject();
+        try {
+            jsonObj.put("key1", "value1");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+		/*
+		 * Call the node.js application hosted in the IBM Cloud Code service
+		 * with a POST call, passing in a non-essential JSONObject.
+		 * The URI is relative to/appended to the BlueMix context root.
+		 */
+
+        myCloudCodeService.post("notifyOtherDevices", jsonObj).continueWith(new Continuation<IBMHttpResponse, Void>() {
+
+            @Override
+            public Void then(Task<IBMHttpResponse> task) throws Exception {
+                if (task.isCancelled()) {
+                    Log.e(CLASS_NAME, "Exception : Task" + task.isCancelled() + "was cancelled.");
+                } else if (task.isFaulted()) {
+                    Log.e(CLASS_NAME, "Exception : " + task.getError().getMessage());
+                } else {
+                    InputStream is = task.getResult().getInputStream();
+                    try {
+                        BufferedReader in = new BufferedReader(new InputStreamReader(is));
+                        String responseString = "";
+                        String myString = "";
+                        while ((myString = in.readLine()) != null)
+                            responseString += myString;
+
+                        in.close();
+                        Log.i(CLASS_NAME, "Response Body: " + responseString);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+                    Log.i(CLASS_NAME, "Response Status from notifyOtherDevices: " + task.getResult().getHttpResponseCode());
+                }
+
+                return null;
+            }
+
+        });
+
     }
 
     @Override
@@ -84,30 +179,25 @@ public class TopicActivity extends Activity {
     }
 
     public void listBPs() {
-        IBMQuery<BestPractise> query;
         try {
-            query = IBMQuery.queryForClass(BestPractise.class);
+            IBMQuery<BestPractise> query = IBMQuery.queryForClass(BestPractise.class);
 
             query.find().continueWith(new Continuation<List<BestPractise>, Void>() {
                 @Override
                 public Void then(Task<List<BestPractise>> listTask) throws Exception {
-                    final List<BestPractise> objects = listTask.getResult();
-
-
                     if (listTask.isCancelled()) {
                         Log.e(CLASS_NAME, "Exception : Task " + listTask.toString() + " was cancelled.");
                     } else if (listTask.isFaulted()) {
                         Log.e(CLASS_NAME, "Exception : " + listTask.getError().getMessage());
                     } else {
-                        Log.i("test", String.valueOf(objects.size()));
-                        Log.i("test", String.valueOf(objects.get(0).getClass()));
+
+                        final List<BestPractise> objects = listTask.getResult();
+
                         bestPractiseList.clear();
-                        for (BestPractise bp : objects) {
-                            Log.i("test", "test");
-                            try {
-                                bestPractiseList.add(bp);
-                            }catch(Exception e){
-                                Log.i("ERROR",e.getMessage());
+                        for (IBMDataObject bp : objects) {
+                            BestPractise bpadd = (BestPractise) bp;
+                            if (bpadd.getTopic().equals(selectedTopic)) {
+                                bestPractiseList.add(bpadd);
                             }
                         }
                         sortItems(bestPractiseList);
@@ -132,13 +222,13 @@ public class TopicActivity extends Activity {
         });
     }
 
-    private class ListBPAdapter extends BaseAdapter {
+    private class ListBPAdapter<T> extends BaseAdapter {
         Context context;
 
-        protected List<BestPractise> bestPractiseList;
+        protected List<T> bestPractiseList;
         LayoutInflater inflater;
 
-        public ListBPAdapter(Context context, List<BestPractise> bestPractiseList) {
+        public ListBPAdapter(Context context, List<T> bestPractiseList) {
             this.bestPractiseList = bestPractiseList;
             this.context = context;
             this.inflater = LayoutInflater.from(context);
@@ -156,7 +246,7 @@ public class TopicActivity extends Activity {
 
         @Override
         public long getItemId(int position) {
-            return bestPractiseList.get(position).getObjectId().hashCode();
+            return bestPractiseList.get(position).hashCode();
         }
 
         @Override
@@ -174,13 +264,9 @@ public class TopicActivity extends Activity {
                 viewHolderItem = (ViewHolderItem) convertView.getTag();
             }
 
-            BestPractise bestPractise = bestPractiseList.get(position);
+            BestPractise bestPractise = (BestPractise) bestPractiseList.get(position);
             viewHolderItem.txtBPTitle.setText(bestPractise.getTitle());
 
-            /*
-             * int maxLength = (inputString.length() < MAX_CHAR)?inputString.length():MAX_CHAR;
-             * inputString = inputString.substring(0, maxLength);
-            */
             int MAX_CHAR = 10;
             int summarylenght = (bestPractise.getText().length() < MAX_CHAR) ? bestPractise.getText().length() : MAX_CHAR;
             viewHolderItem.txtSummary.setText(bestPractise.getText().substring(0, summarylenght));

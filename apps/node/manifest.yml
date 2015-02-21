@@ -1,0 +1,8 @@
+  host: best-practise-discussion
+  disk: 1024M
+  name: best-practise-discussion
+  command: node app.js
+  path: .
+  domain: eu-gb.mybluemix.net
+  memory: 128M
+  instances: 1
